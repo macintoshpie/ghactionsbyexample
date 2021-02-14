@@ -26,22 +26,21 @@ jobs:
         env:
           VICI: 'I conquered'
 
-      # ::span-comment
-      # Set new environment variables by appending a line
-      # to a file whose name is in the `GITHUB_ENV` variable. The variable
-      # will be available in all subsequent `step`s.
-      # Note: the environment won't be updated according to `GITHUB_ENV` until the next step.
       -
         name: Create env var
+        # Set new environment variables by appending a line
+        # to a file whose name is in the `GITHUB_ENV` variable. The variable
+        # will be available in all subsequent `step`s.
+        # Note: the environment won't be updated according to `GITHUB_ENV` until the next step.
         run: echo "foo=bar" >> $GITHUB_ENV
-      # ::end-span
 
       -
         name: Useful default vars
+        run: |
+
         # ::span-comment
         # There are many environment variables available by default.
         # Here are a few, [see a full list here](https://docs.github.com/en/actions/reference/environment-variables#default-environment-variables).
-        run: |
           echo "Workflow name:  $GITHUB_WORKFLOW
           echo "Workspace:      $GITHUB_WORKSPACE"
           echo "Event:          $GITHUB_EVENT_NAME"

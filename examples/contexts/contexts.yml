@@ -1,0 +1,37 @@
+# Contexts are collections of variables that are accessible outside of the `run` commands.
+# You can think of them as variables which can be templated into the workflow file itself.
+# See the full list of contexts [here](https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#contexts).
+
+name: contexts-example
+on:
+  push:
+  pull:
+
+jobs:
+  use-contexts:
+    strategy:
+      matrix:
+        greeting: [Hello, Howdy, Hey]
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Print greeting
+        # ::span-comment
+        # Use the [`matrix` context](job-matrix.html) to print the job's greeting.
+        run: echo $GREETING
+        env:
+          GREETING: ${{ matrix.greeting }}
+        # ::end-span
+      -
+        name: Do work with a secret
+        run: ./workRequiringASecret.sh
+        # ::span-comment
+        # Use a [secret from your repository](https://docs.github.com/en/actions/reference/encrypted-secrets#about-encrypted-secrets) as an env var.
+        env:
+          A_SECRET: ${{ secrets.A_SECRET }}
+        # ::end-span
+      -
+        name: Run only for pulls
+        # Contexts can also be part of [expressions](context-expressions.html).
+        if: ${{ github.event == "pull" }}
+        run: echo "Triggered by a pull request"          
