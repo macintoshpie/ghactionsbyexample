@@ -1,0 +1,44 @@
+name: triggers-example
+
+# The `on` section defines what events trigger the workflow.
+# For an exhaustive list of events and their types, [see here](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#webhook-events).
+on:
+  # Trigger on push to the remote repo
+  push:
+    # Optionally include `branches` to trigger the workflow 
+    # only on branches that match the given patterns.
+    branches: 
+      - 'develop'
+      # A `*` matches zero or more characters, but not the `/` character.
+      # E.g. matches `refs/heads/foo/abc` but not `refs/heads/foo/abc/123`.
+      - 'foo/*'
+      # A `**` matches zero or more of any character
+      # E.g. matches `refs/heads/foo/abc` _and_ `refs/heads/foo/abc/123`.
+      - 'foo/**'
+      # `!` negates a match. E.g. excludes `refs/heads/foo/abc/456`.
+      # More on negative patterns [here](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#example-using-positive-and-negative-patterns). 
+      - '!foo/*/456'
+    # Optionally include `tags` to trigger the workflow
+    # only on tags that match the given patterns
+    tags:
+      - '*'
+  # Trigger on pull requests
+  pull_request:
+    branches:
+      # Pull requests into `develop` branch
+      - 'develop'
+  # Trigger on a schedule, specified with [POSIX cron syntax](https://crontab.guru/)
+  schedule:
+    - cron: '*/15 * * * *'
+
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Event
+        run: "Triggered by: $GITHUB_EVENT_NAME"
+      -
+        name: Say Hello
+        run: echo "Hello world!"
