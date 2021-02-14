@@ -2,31 +2,35 @@ name: env-vars-example
 on:
   push:
 
-# Environment variables can be set for the entire workflow
+# ::span-comment
+# Environment variables can be set for the entire workflow.
 env:
   VENI: 'I came'
+# ::end-span
 
 jobs:
   use-env-vars:
     runs-on: ubuntu-latest
-    # Environment variables can be set for specific jobs
+    # ::span-comment
+    # Environment variables can be set for specific jobs.
     env:
       VIDI: 'I saw'
+    # ::end-span
     steps:
       -
         name: Show me the vars
         # Use your operating system's normal method for reading
         # environment variables.
         run: echo "$VENI, $VIDI, $VICI"
-        # Environment variables can be set for individual steps
+        # Environment variables can be set for individual `step`s.
         env:
           VICI: 'I conquered'
 
       # ::span-comment
       # Set new environment variables by appending a line
-      # to a file whose name is in the GITHUB_ENV variable. The variable
-      # will be available for any subsequent steps (ie it's not available
-      # in this one)
+      # to a file whose name is in the `GITHUB_ENV` variable. The variable
+      # will be available in all subsequent `step`s.
+      # Note: the environment won't be updated according to `GITHUB_ENV` until the next step.
       -
         name: Create env var
         run: echo "foo=bar" >> $GITHUB_ENV

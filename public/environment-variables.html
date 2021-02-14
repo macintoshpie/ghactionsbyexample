@@ -36,14 +36,14 @@
 </td>
             </tr>
             <tr>
-                <td rowspan="1" class="docs"><p>Environment variables can be set for the entire workflow</p>
+                <td rowspan="2" class="docs"><p>Environment variables can be set for the entire workflow.</p>
 </td>
                 <td class="code "><div class="highlight"><pre><span></span><span class="nt">env</span><span class="p">:</span>
 </pre></div>
 </td>
             </tr>
             <tr>
-                <td rowspan="1" class="docs"></td>
+                
                 <td class="code "><div class="highlight"><pre><span></span>  <span class="nt">VENI</span><span class="p">:</span> <span class="s">&#39;I</span><span class="nv"> </span><span class="s">came&#39;</span>
 </pre></div>
 </td>
@@ -67,14 +67,14 @@
 </td>
             </tr>
             <tr>
-                <td rowspan="1" class="docs"><p>Environment variables can be set for specific jobs</p>
+                <td rowspan="2" class="docs"><p>Environment variables can be set for specific jobs.</p>
 </td>
                 <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">env</span><span class="p">:</span>
 </pre></div>
 </td>
             </tr>
             <tr>
-                <td rowspan="1" class="docs"></td>
+                
                 <td class="code "><div class="highlight"><pre><span></span>      <span class="nt">VIDI</span><span class="p">:</span> <span class="s">&#39;I</span><span class="nv"> </span><span class="s">saw&#39;</span>
 </pre></div>
 </td>
@@ -105,7 +105,7 @@
 </td>
             </tr>
             <tr>
-                <td rowspan="1" class="docs"><p>Environment variables can be set for individual steps</p>
+                <td rowspan="1" class="docs"><p>Environment variables can be set for individual <code>step</code>s.</p>
 </td>
                 <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">env</span><span class="p">:</span>
 </pre></div>
@@ -118,7 +118,7 @@
 </td>
             </tr>
             <tr>
-                <td rowspan="3" class="docs"><p>Set new environment variables by appending a line to a file whose name is in the GITHUB_ENV variable. The variable will be available for any subsequent steps (ie it&rsquo;s not available in this one)</p>
+                <td rowspan="3" class="docs"><p>Set new environment variables by appending a line to a file whose name is in the <code>GITHUB_ENV</code> variable. The variable will be available in all subsequent <code>step</code>s. Note: the environment won&rsquo;t be updated according to <code>GITHUB_ENV</code> until the next step.</p>
 </td>
                 <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span>
 </pre></div>

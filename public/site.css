@@ -146,7 +146,7 @@ span.linenos.special { color: var(--generic); background-color: #ffffc0; padding
 }
 
 body {
-    line-height: 1.2rem;
+    line-height: 1.1rem;
     font-family: 'Libre Baskerville', serif;
 }
 
@@ -173,11 +173,16 @@ tr {
     margin: 0;
 }
 
-.docs {
-    /* font-family: 'Quattrocento Sans', sans-serif; */
-
+.docs { 
     padding-right: 1.5rem;
-    padding-bottom: 1rem;
+}
+
+.docs p:first-child::before {
+    content: "• ";
+}
+
+.docs p:not(:first-child) {
+    padding-top: .75rem;
 }
 
 .code:not(.empty) {
@@ -186,8 +191,8 @@ tr {
 
 td {
     padding-left: 0.5rem;
-    padding-top: 0.1rem;
-    padding-bottom: 0.1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
     margin: 0px;
     
     vertical-align: top;
