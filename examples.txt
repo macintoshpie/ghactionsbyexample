@@ -1,3 +1,4 @@
 hello-world
 actions
 environment-variables
+triggers
