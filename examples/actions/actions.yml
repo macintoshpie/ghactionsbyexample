@@ -1,0 +1,31 @@
+# Actions reduce workflow `steps` by providing reusabe "code"
+# for common tasks.
+# To run an action, you include the `uses` keyword
+# pointing to a GitHub repo with the pattern
+# `{owner}/{repo}@{ref}` or `{owner}/{repo}/{path}@{ref}`
+# if it's in a subdirectory. A `ref` can be a branch, tag, or SHA.
+
+name: actions-example
+on:
+  push:
+
+jobs:
+  use-actions:
+    runs-on: ubuntu-latest
+    steps:
+      # The `checkout` action checks out your repo to the working directory. 
+      - uses: actions/checkout@v2
+      # The `setup-node` action makes node and npm available in the following steps.
+      - uses: actions/setup-node@v1
+        # ::span-comment
+        # Some actions also have required or optional arguments.
+        with:
+          node-version: '15.8.0'
+        # ::end-span
+
+      -
+        name: Install repo dependencies
+        run: npm install
+      -
+        name: Run script from repo
+        run: node helloWorld.js

@@ -1,0 +1,8 @@
+```bash
+./build.sh
+
+# or
+./build.sh watch
+```
+
+Files for serving are put into `public/`.

@@ -1,0 +1,65 @@
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto+Mono&display=swap" rel="stylesheet"> 
+    <link href="site.css" rel="stylesheet">
+</head>
+<body>
+<div class="main_container">
+<div class="container">
+    <h1><a href="index.html">GitHub Actions by Example</a>: {{.Name}}</h1>
+    <table>
+        <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+        </colgroup>
+
+        <tbody>
+            {{- range .Rows}}
+            <tr>
+                {{if (gt .DocSpan  0) -}}
+                <td rowspan="{{.DocSpan}}" class="docs">{{.DocHTML}}</td>
+                {{- end}}
+                <td class="code {{if .CodeEmpty}} empty{{end}}">
+                  {{- if .FirstCode}}
+                  <svg version="1.1" id="copy_icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100.56 122.88" style="enable-background:new 0 0 100.56 122.88" xml:space="preserve"><g><path d="M72.15,112.2L90.4,93H72.15V112.2L72.15,112.2z M81.75,9.2c0,1.69-1.37,3.05-3.05,3.05c-1.69,0-3.05-1.37-3.05-3.05V6.11 H6.11v92.24h3.01c1.69,0,3.05,1.37,3.05,3.05c0,1.69-1.37,3.05-3.05,3.05H5.48c-1.51,0-2.88-0.61-3.87-1.61l0.01-0.01 c-1-1-1.61-2.37-1.61-3.87V5.48C0,3.97,0.61,2.6,1.61,1.61C2.6,0.61,3.97,0,5.48,0h70.79c1.5,0,2.87,0.62,3.86,1.61l0,0l0.01,0.01 c0.99,0.99,1.61,2.36,1.61,3.86V9.2L81.75,9.2z M100.56,90.55c0,1.4-0.94,2.58-2.22,2.94l-26.88,28.27 c-0.56,0.68-1.41,1.11-2.36,1.11c-0.06,0-0.12,0-0.19-0.01c-0.06,0-0.12,0.01-0.18,0.01H24.29c-1.51,0-2.88-0.61-3.87-1.61 l0.01-0.01l-0.01-0.01c-0.99-0.99-1.61-2.36-1.61-3.86v-93.5c0-1.51,0.62-2.88,1.61-3.87l0.01,0.01c1-0.99,2.37-1.61,3.86-1.61 h70.79c1.5,0,2.87,0.62,3.86,1.61l0,0l0.01,0.01c0.99,0.99,1.61,2.36,1.61,3.86V90.55L100.56,90.55z M94.45,86.9V24.54H24.92v92.24 h41.13V89.95c0-1.69,1.37-3.05,3.05-3.05H94.45L94.45,86.9z"></path></g></svg>
+                  {{- end}}
+                {{- .CodeHTML}}</td>
+            </tr>
+            {{- end}}
+        <tbody>
+    </table>
+    {{if .NextExample}}
+    <p>
+        Next example: <a href="{{.NextExample.Id}}.html">{{.NextExample.Name}}</a>
+    </p>
+    {{end}}
+</div>
+<p class="footer">By <a href="https://macintoshpie.github.io">Ted Summer</a> | <a href="https://github.com/macintoshpie">Source</a> | Inspired by <a href="https://gobyexample.com">Go by Example</a></p>
+</div>
+<script>
+    const yamlBody = `{{.FullCode}}`
+
+    function copy() {
+        var body = document.getElementsByTagName('body')[0];
+        newTextArea = document.createElement('textarea')
+        body.appendChild(newTextArea)
+        newTextArea.value = yamlBody
+        newTextArea.select()
+
+        try {
+            var successful = document.execCommand('copy');
+            var msg = successful ? 'successful' : 'unsuccessful';
+            console.log('Copy command was ' + msg);
+        } catch(err) {
+            console.log('Oops, unable to copy: ', err);
+        }
+
+        body.removeChild(newTextArea)
+    }
+
+    document.querySelector("#copy_icon").addEventListener("click", copy);
+</script>
+</body>
+</html>

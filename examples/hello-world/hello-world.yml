@@ -1,0 +1,25 @@
+# This example workflow prints "Hello world", then "Goodbye".
+
+name: hello-world-example
+
+# ::span-comment
+# We can specify what events trigger the workflow to run.
+# In this case we run it every time someone pushes to the repo.
+on:
+  push:
+# ::end-span
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      # ::span-comment
+      # Each step defines a command to run. You can even give the
+      # steps names.
+      -
+        name: Say Hello
+        run: echo "Hello world!"
+      # ::end-span
+      -
+        name: Say Goodbye
+        run: echo "Goodbye!"
