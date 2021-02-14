@@ -1,4 +1,4 @@
 hello-world
+event-triggers
 actions
 environment-variables
-triggers

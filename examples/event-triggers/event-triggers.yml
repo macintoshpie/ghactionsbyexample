@@ -1,4 +1,4 @@
-name: triggers-example
+name: event-triggers-example
 
 # The `on` section defines what events trigger the workflow.
 # For an exhaustive list of events and their types, [see here](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#webhook-events).
