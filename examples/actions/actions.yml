@@ -13,7 +13,7 @@ jobs:
   use-actions:
     runs-on: ubuntu-latest
     steps:
-      # The `checkout` action checks out your repo to the working directory. 
+      # The `checkout` action checks out your repo into the working directory at the ref which triggered the workflow (e.g. a branch that was pushed).
       - uses: actions/checkout@v2
       # The `setup-node` action makes node and npm available in the following steps.
       - uses: actions/setup-node@v1

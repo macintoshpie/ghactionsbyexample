@@ -1,25 +1,30 @@
+# GitHub Actions is configured by writing "workflows".
+# Workflows  define sequences of commands written in [YAML](https://en.wikipedia.org/wiki/YAML) and must be
+# located under the directory `.github/workflows/` at the root of your repository.
+# ::newline
 # This example workflow prints "Hello world", then "Goodbye".
 
 name: hello-world-example
 
 # ::span-comment
-# We can specify what events trigger the workflow to run.
+# We must specify what events trigger the workflow to run.
 # In this case we run it every time someone pushes to the repo.
 on:
   push:
 # ::end-span
 
 jobs:
+  # A `job` specifies a sequence of commands.
+  # We named this job `say-hello`.
   say-hello:
+    # `job`s can run on different machines.
     runs-on: ubuntu-latest
+    # `steps` is a list of commands to run.
     steps:
-      # ::span-comment
-      # Each step defines a command to run. You can even give the
-      # steps names.
       -
         name: Say Hello
+        # Finally, do stuff! Run a command using the operating system's shell.
         run: echo "Hello world!"
-      # ::end-span
       -
         name: Say Goodbye
         run: echo "Goodbye!"
