@@ -146,7 +146,7 @@ span.linenos.special { color: var(--generic); background-color: #ffffc0; padding
 }
 
 body {
-    line-height: 1.2rem;
+    line-height: 1.1rem;
     font-family: 'Libre Baskerville', serif;
 }
 
@@ -177,6 +177,10 @@ tr {
     padding-right: 1.5rem;
 }
 
+.docs p:first-child::before {
+    content: "• ";
+}
+
 .docs p:not(:first-child) {
     padding-top: .75rem;
 }
@@ -187,8 +191,8 @@ tr {
 
 td {
     padding-left: 0.5rem;
-    padding-top: 0.1rem;
-    padding-bottom: 0.1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
     margin: 0px;
     
     vertical-align: top;

@@ -74,7 +74,7 @@ func parseExample(exampleName string) *Example {
 				row.Doc += "  \n\n"
 			default:
 				// update the row's documentation
-				if row.Doc != "" {
+				if len(row.Doc) > 0 {
 					line = " " + line
 				}
 				row.Doc += line
