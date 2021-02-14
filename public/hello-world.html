@@ -17,7 +17,9 @@
 
         <tbody>
             <tr>
-                <td rowspan="1" class="docs"><p>This example workflow prints &ldquo;Hello world&rdquo;, then &ldquo;Goodbye&rdquo;.</p>
+                <td rowspan="1" class="docs"><p>GitHub Actions is configured by writing &ldquo;workflows&rdquo;. Workflows  define sequences of commands written in <a href="https://en.wikipedia.org/wiki/YAML">YAML</a> and must be located under the directory <code>.github/workflows/</code> at the root of your repository.</p>
+
+<p>This example workflow prints &ldquo;Hello world&rdquo;, then &ldquo;Goodbye&rdquo;.</p>
 </td>
                 <td class="code  empty"><div class="highlight"><pre><span></span>
 </pre></div>
@@ -31,7 +33,7 @@
 </td>
             </tr>
             <tr>
-                <td rowspan="2" class="docs"><p>We can specify what events trigger the workflow to run. In this case we run it every time someone pushes to the repo.</p>
+                <td rowspan="2" class="docs"><p>We must specify what events trigger the workflow to run. In this case we run it every time someone pushes to the repo.</p>
 </td>
                 <td class="code "><div class="highlight"><pre><span></span><span class="nt">on</span><span class="p">:</span>
 </pre></div>
@@ -50,38 +52,41 @@
 </td>
             </tr>
             <tr>
-                <td rowspan="1" class="docs"></td>
+                <td rowspan="1" class="docs"><p>A <code>job</code> specifies a sequence of commands. We named this job <code>say-hello</code>.</p>
+</td>
                 <td class="code "><div class="highlight"><pre><span></span>  <span class="nt">say-hello</span><span class="p">:</span>
 </pre></div>
 </td>
             </tr>
             <tr>
-                <td rowspan="1" class="docs"></td>
+                <td rowspan="1" class="docs"><p><code>job</code>s can run on different machines.</p>
+</td>
                 <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
 </pre></div>
 </td>
             </tr>
             <tr>
-                <td rowspan="1" class="docs"></td>
+                <td rowspan="1" class="docs"><p><code>steps</code> is a list of commands to run.</p>
+</td>
                 <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">steps</span><span class="p">:</span>
 </pre></div>
 </td>
             </tr>
             <tr>
-                <td rowspan="3" class="docs"><p>Each step defines a command to run. You can even give the steps names.</p>
-</td>
+                <td rowspan="1" class="docs"></td>
                 <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span>
 </pre></div>
 </td>
             </tr>
             <tr>
-                
+                <td rowspan="1" class="docs"></td>
                 <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Say Hello</span>
 </pre></div>
 </td>
             </tr>
             <tr>
-                
+                <td rowspan="1" class="docs"><p>Finally, do stuff! Run a command using the operating system&rsquo;s shell.</p>
+</td>
                 <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;Hello world!&quot;</span>
 </pre></div>
 </td>
