@@ -61,15 +61,18 @@ func parseExample(exampleName string) *Example {
 		line := scanner.Text()
 		commentPrefix := regexp.MustCompile(`^\s*#\s*`)
 		if commentPrefix.MatchString(line) {
-			// Process doc line
+			// Process comment line (ie documentation)
 			line = commentPrefix.ReplaceAllString(line, "")
 
-			if strings.HasPrefix(line, "::span-comment") {
+			switch strings.TrimSpace(line) {
+			case "::span-comment":
 				inSpan = true
 				spanningRow = row
-			} else if strings.HasPrefix(line, "::end-span") {
+			case "::end-span":
 				inSpan = false
-			} else {
+			case "::newline":
+				row.Doc += "  \n"
+			default:
 				// update the row's documentation
 				if row.Doc != "" {
 					line = " " + line
