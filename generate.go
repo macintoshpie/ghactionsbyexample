@@ -71,7 +71,7 @@ func parseExample(exampleName string) *Example {
 			case "::end-span":
 				inSpan = false
 			case "::newline":
-				row.Doc += "  \n"
+				row.Doc += "  \n\n"
 			default:
 				// update the row's documentation
 				if row.Doc != "" {

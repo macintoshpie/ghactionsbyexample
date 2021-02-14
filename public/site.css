@@ -173,11 +173,12 @@ tr {
     margin: 0;
 }
 
-.docs {
-    /* font-family: 'Quattrocento Sans', sans-serif; */
-
+.docs { 
     padding-right: 1.5rem;
-    padding-bottom: 1rem;
+}
+
+.docs p:not(:first-child) {
+    padding-top: .75rem;
 }
 
 .code:not(.empty) {
