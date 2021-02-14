@@ -118,20 +118,20 @@
 </td>
             </tr>
             <tr>
-                <td rowspan="3" class="docs"><p>Set new environment variables by appending a line to a file whose name is in the <code>GITHUB_ENV</code> variable. The variable will be available in all subsequent <code>step</code>s. Note: the environment won&rsquo;t be updated according to <code>GITHUB_ENV</code> until the next step.</p>
-</td>
+                <td rowspan="1" class="docs"></td>
                 <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span>
 </pre></div>
 </td>
             </tr>
             <tr>
-                
+                <td rowspan="1" class="docs"></td>
                 <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create env var</span>
 </pre></div>
 </td>
             </tr>
             <tr>
-                
+                <td rowspan="1" class="docs"><p>Set new environment variables by appending a line to a file whose name is in the <code>GITHUB_ENV</code> variable. The variable will be available in all subsequent <code>step</code>s. Note: the environment won&rsquo;t be updated according to <code>GITHUB_ENV</code> until the next step.</p>
+</td>
                 <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;foo=bar&quot; &gt;&gt; $GITHUB_ENV</span>
 </pre></div>
 </td>
@@ -149,14 +149,14 @@
 </td>
             </tr>
             <tr>
-                <td rowspan="6" class="docs"><p>There are many environment variables available by default. Here are a few, <a href="https://docs.github.com/en/actions/reference/environment-variables#default-environment-variables">see a full list here</a>.</p>
-</td>
+                <td rowspan="1" class="docs"></td>
                 <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
 </pre></div>
 </td>
             </tr>
             <tr>
-                
+                <td rowspan="5" class="docs"><p>There are many environment variables available by default. Here are a few, <a href="https://docs.github.com/en/actions/reference/environment-variables#default-environment-variables">see a full list here</a>.</p>
+</td>
                 <td class="code "><div class="highlight"><pre><span></span>          <span class="l l-Scalar l-Scalar-Plain">echo &quot;Workflow name</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">$GITHUB_WORKFLOW</span>
 </pre></div>
 </td>
@@ -187,6 +187,10 @@
             </tr>
         <tbody>
     </table>
+    
+    <p>
+        Next example: <a href="parallel-jobs.html">Parallel Jobs</a>
+    </p>
     
 </div>
 <p class="footer">By <a href="https://macintoshpie.github.io">Ted Summer</a> | <a href="https://github.com/macintoshpie/ghactionsbyexample">Source</a> | Inspired by <a href="https://gobyexample.com">Go by Example</a></p>

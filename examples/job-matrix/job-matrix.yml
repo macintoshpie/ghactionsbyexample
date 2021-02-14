@@ -1,0 +1,49 @@
+# You can run multiple jobs with different configurations by using a job `matrix`.
+# Note that jobs defined by a `matrix` run in parallel by default.
+
+name: job-matrix
+on:
+  push:
+
+jobs:
+  my-job:
+    strategy:
+      # ::span-comment
+      # The `matrix` keyword is how you define a job matrix.
+      # Each user-defined key is a matrix parameter, here we've defined two: `os` and `node`.
+      # The list of possible values for each parameter are used in a [cartesian product](https://en.wikipedia.org/wiki/Cartesian_product) to create jobs.
+      # This section defines a 2 x 3 matrix of 6 jobs, each with a different combination of `os` and `node`.
+      matrix:
+        os: [ubuntu-16.04, ubuntu-18.04]
+        node: [6, 8, 10]
+      # ::end-span
+
+        # ::span-comment
+        # The `exclude` keyword prevents jobs with specific configurations from running.
+        exclude:
+          -
+            os: ubuntu-16.04
+            node: 6
+        # ::end-span
+
+        # ::span-comment
+        # `include` allows you to add new jobs to the `matrix`.
+        # Note that the `include` rules always evaluated after the `exclude` rules.
+        include:
+          -
+            os: macos-latest
+            node: 10
+        # ::end-span
+
+    # Use `matrix` parameters to configure jobs.
+    # [Context expressions](index.html) are used to insert the parameter value.
+    # This example uses the `os` parameter to set the operating system of the job.
+    runs-on: ${{ matrix.os }}
+    steps:
+      -
+        uses: actions/setup-node@2
+        with:
+          # Setup node based on the matrix parameter `node`
+          node-version: ${{ matrix.node }}
+      - run: npm install
+      - run: npm test

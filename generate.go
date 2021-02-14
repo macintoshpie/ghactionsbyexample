@@ -70,6 +70,7 @@ func parseExample(exampleName string) *Example {
 				spanningRow = row
 			case "::end-span":
 				inSpan = false
+				row = &Row{}
 			case "::newline":
 				row.Doc += "  \n\n"
 			default:
@@ -83,7 +84,7 @@ func parseExample(exampleName string) *Example {
 			// Process code line
 
 			// skip completely empty lines
-			if line == "" && row.Doc == "" {
+			if strings.TrimSpace(line) == "" && row.Doc == "" {
 				continue
 			}
 
