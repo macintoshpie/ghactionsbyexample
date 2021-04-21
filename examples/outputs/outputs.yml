@@ -21,7 +21,7 @@ jobs:
         id: abc
       -
         name: Read output
-        # Use the `step` [context variable](context-variables.html) and step id to get the value
+        # Use the `steps` [context variable](context-variables.html) and step id to get the value
         run: |
           echo "${{steps.abc.outputs.FAV_NUMBER}}"
           echo "${{steps.abc.outputs.FAV_COLOR}}"
