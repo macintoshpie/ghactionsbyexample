@@ -3,6 +3,7 @@ event-triggers
 actions
 environment-variables
 parallel-jobs
+job-ordering
 job-matrix
 context-variables
 context-expressions

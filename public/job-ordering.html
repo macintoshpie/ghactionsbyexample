@@ -1,0 +1,218 @@
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto+Mono&display=swap" rel="stylesheet"> 
+    <link href="site.css" rel="stylesheet">
+</head>
+<body>
+<div class="main_container">
+<div class="container">
+    <h1><a href="index.html">GitHub Actions by Example</a>: Job Ordering</h1>
+    <table>
+        <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+        </colgroup>
+
+        <tbody>
+            <tr>
+                <td rowspan="1" class="docs"><p>As mentioned in <a href="parallel-jobs.html">Parallel Jobs</a>, jobs are run in parallel by default. You can force job ordering by using the <code>needs</code> keyword.</p>
+</td>
+                <td class="code  empty"><div class="highlight"><pre><span></span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code ">
+                  <svg version="1.1" id="copy_icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100.56 122.88" style="enable-background:new 0 0 100.56 122.88" xml:space="preserve"><g><path d="M72.15,112.2L90.4,93H72.15V112.2L72.15,112.2z M81.75,9.2c0,1.69-1.37,3.05-3.05,3.05c-1.69,0-3.05-1.37-3.05-3.05V6.11 H6.11v92.24h3.01c1.69,0,3.05,1.37,3.05,3.05c0,1.69-1.37,3.05-3.05,3.05H5.48c-1.51,0-2.88-0.61-3.87-1.61l0.01-0.01 c-1-1-1.61-2.37-1.61-3.87V5.48C0,3.97,0.61,2.6,1.61,1.61C2.6,0.61,3.97,0,5.48,0h70.79c1.5,0,2.87,0.62,3.86,1.61l0,0l0.01,0.01 c0.99,0.99,1.61,2.36,1.61,3.86V9.2L81.75,9.2z M100.56,90.55c0,1.4-0.94,2.58-2.22,2.94l-26.88,28.27 c-0.56,0.68-1.41,1.11-2.36,1.11c-0.06,0-0.12,0-0.19-0.01c-0.06,0-0.12,0.01-0.18,0.01H24.29c-1.51,0-2.88-0.61-3.87-1.61 l0.01-0.01l-0.01-0.01c-0.99-0.99-1.61-2.36-1.61-3.86v-93.5c0-1.51,0.62-2.88,1.61-3.87l0.01,0.01c1-0.99,2.37-1.61,3.86-1.61 h70.79c1.5,0,2.87,0.62,3.86,1.61l0,0l0.01,0.01c0.99,0.99,1.61,2.36,1.61,3.86V90.55L100.56,90.55z M94.45,86.9V24.54H24.92v92.24 h41.13V89.95c0-1.69,1.37-3.05,3.05-3.05H94.45L94.45,86.9z"></path></g></svg><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">parallel-jobs</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span><span class="nt">on</span><span class="p">:</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>  <span class="nt">push</span><span class="p">:</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span><span class="nt">jobs</span><span class="p">:</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>  <span class="nt">job1</span><span class="p">:</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">steps</span><span class="p">:</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span> <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;Doing work parallel with job2&quot;</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>  <span class="nt">job2</span><span class="p">:</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">steps</span><span class="p">:</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span> <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;Doing work parallel with job1&quot;</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>  <span class="nt">job3</span><span class="p">:</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"><p><code>job1</code> must complete successfully before starting <code>job3</code></p>
+</td>
+                <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">needs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">job1</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">steps</span><span class="p">:</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span> <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;job1 done, running job3&quot;</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"><p><code>job2</code> and <code>job3</code> must complete successfully before starting <code>job4</code></p>
+</td>
+                <td class="code "><div class="highlight"><pre><span></span>  <span class="nt">job4</span><span class="p">:</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">needs</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">job2</span><span class="p p-Indicator">,</span> <span class="nv">job3</span><span class="p p-Indicator">]</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">steps</span><span class="p">:</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span> <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;job2 &amp; job3 done, running job4&quot;</span>
+</pre></div>
+</td>
+            </tr>
+        <tbody>
+    </table>
+    
+    <p>
+        Next example: <a href="job-matrix.html">Job Matrix</a>
+    </p>
+    
+</div>
+<p class="footer">By <a href="https://macintoshpie.github.io">Ted Summer</a> | <a href="https://github.com/macintoshpie/ghactionsbyexample">Source</a> | Inspired by <a href="https://gobyexample.com">Go by Example</a></p>
+</div>
+<script>
+    const yamlBody = `
+name: parallel-jobs
+on:
+  push:
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Doing work parallel with job2"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Doing work parallel with job1"
+  job3:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - run: echo "job1 done, running job3"
+  job4:
+    runs-on: ubuntu-latest
+    needs: [job2, job3]
+    steps:
+      - run: echo "job2 & job3 done, running job4"
+`
+
+    function copy() {
+        var body = document.getElementsByTagName('body')[0];
+        newTextArea = document.createElement('textarea')
+        body.appendChild(newTextArea)
+        newTextArea.value = yamlBody
+        newTextArea.select()
+
+        try {
+            var successful = document.execCommand('copy');
+            var msg = successful ? 'successful' : 'unsuccessful';
+            console.log('Copy command was ' + msg);
+        } catch(err) {
+            console.log('Oops, unable to copy: ', err);
+        }
+
+        body.removeChild(newTextArea)
+    }
+
+    document.querySelector("#copy_icon").addEventListener("click", copy);
+</script>
+</body>
+</html>
