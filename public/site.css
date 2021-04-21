@@ -155,9 +155,15 @@ a {
 }
 
 pre, code {
-    font-size: 14px; line-height: 18px;
+    font-size: 14px;
+    line-height: 20px;
     /* font-family: 'Menlo', 'Monaco', 'Consolas', 'Lucida Console', monospace; */
     font-family: 'Roboto Mono', monospace;
+}
+
+code {
+    white-space: pre;
+    background-color: #fafafa;
 }
 
 tr:hover > td.code:not(.empty) {
