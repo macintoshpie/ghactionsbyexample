@@ -1,0 +1,69 @@
+# As seen in [Context Variables](context-variables.html), you can inject variables into the workflow
+# by using the `${{ <context variable> }}` syntax. Workflows support evaluating expressions as well
+# such as comparisons and simple functions. For more information see the [docs](https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#about-contexts-and-expressions).
+
+name: expressions-example
+on:
+  push:
+  pull:
+
+jobs:
+  use-expressions:
+    strategy:
+      matrix:
+        greeting: [Hello, Howdy, Hey]
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Print if 'Hello'
+        # Use equality operators to get a boolean result; in this case we are only running the step
+        # when the greeting is "Hello". Note the use of single quotes for the string literal.
+        # You can use `==`, `!=`, `<`, `<=`, `>`, `>=`, `&&`, `||`, and `( ... )`.
+        # Learn more about operators [here](https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#operators)
+        if: ${{ matrix.greeting == 'Hello' }}
+        run: echo "greeting is Hello"
+      -
+        name: Print if starts with 'He'
+        if: ${{ startsWith(matrix.greeting, 'He') }}
+        run: echo "greeting starts with He"
+      -
+        name: Print if ends with 'y'
+        if: ${{ endsWith(matrix.greeting, 'y') }}
+        run: echo "greeting ends with y"          
+      -
+        name: Print if contains 'ow'
+        if: ${{ contains(matrix.greeting, 'ow') }}
+        run: echo "greeting contains ow"
+      -
+        name: Print formatted greeting
+        run: |
+          echo "${{ format('{0} says {1}', github.actor, matrix.greeting) }}"
+      -
+        name: To JSON
+        # `toJSON()` converts things to a pretty-printed JSON string
+        run: echo 'Job context is ${{ toJSON(job) }}'
+      -
+        name: From JSON
+        # `fromJSON()` converts a string into a JSON object or value
+        env: ${{ fromJSON('{"FAVORITE_FRUIT": "APPLE", "FAVORITE_COLOR": "BLUE"}') }}
+        run: echo "I would like a ${FAVORITE_COLOR} ${FAVORITE_FRUIT}"
+      - 
+        name: Success
+        # `success()` returns `true` if no previous steps have failed or have been canceled.
+        if: ${{ success() }}
+        run: echo "Still running..."
+      -
+        name: Always
+        # `always()` returns `true` no matter if a step failed or the workflow was cancelled.
+        if: ${{ always() }}
+        run: echo "You will always see this"
+      -
+        name: Canceled
+        # `canceled()` returns `true` if the workflow was canceled.
+        if: ${{ canceled() }}
+        run: echo "You canceled the workflow"
+      -
+        name: Failure
+        # `failure()` returns `true` if any previous step failed.
+        if: ${{ failure() }}
+        run: echo "Something went wrong..."
