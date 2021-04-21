@@ -158,6 +158,43 @@
 </pre></div>
 </td>
             </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>  <span class="nt">job5</span><span class="p">:</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="2" class="docs"><p>This job will run after job1, even if job1 fails</p>
+</td>
+                <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ always() }}</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                
+                <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">needs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">job1</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">steps</span><span class="p">:</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span> <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;job2 &amp; job3 done, running job4&quot;</span>
+</pre></div>
+</td>
+            </tr>
         <tbody>
     </table>
     
@@ -190,6 +227,12 @@ jobs:
   job4:
     runs-on: ubuntu-latest
     needs: [job2, job3]
+    steps:
+      - run: echo "job2 & job3 done, running job4"
+  job5:
+    runs-on: ubuntu-latest
+    if: ${{ always() }}
+    needs: job1
     steps:
       - run: echo "job2 & job3 done, running job4"
 `

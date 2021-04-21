@@ -26,3 +26,13 @@ jobs:
     needs: [job2, job3]
     steps:
       - run: echo "job2 & job3 done, running job4"
+  job5:
+    runs-on: ubuntu-latest
+    # ::span-comment
+    # This job will run after job1, even if job1 fails
+    if: ${{ always() }}
+    needs: job1
+    # ::end-span
+    steps:
+      - run: echo "job2 & job3 done, running job4"
+    
