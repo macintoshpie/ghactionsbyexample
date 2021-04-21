@@ -17,7 +17,7 @@ jobs:
   # A `job` specifies a sequence of commands.
   # We named this job `say-hello`.
   say-hello:
-    # `job`s can run on different machines.
+    # `job`s can run on [different machines](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on).
     runs-on: ubuntu-latest
     # `steps` is a list of commands to run.
     steps:
@@ -25,6 +25,16 @@ jobs:
         name: Say Hello
         # Finally, do stuff! Run a command using the operating system's shell.
         run: echo "Hello world!"
+      -
+        name: Do stuff
+        # ::span-comment
+        # Use the pipe, `|`, to start a multiline string in yaml. This allows us to write easily readable
+        # multistep code
+        run: |
+          echo "Step 1..."
+          echo "Step 2..."
+          echo "Step 3..."
+        # ::end-span
       -
         name: Say Goodbye
         run: echo "Goodbye!"

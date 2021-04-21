@@ -59,7 +59,7 @@
 </td>
             </tr>
             <tr>
-                <td rowspan="1" class="docs"><p><code>job</code>s can run on different machines.</p>
+                <td rowspan="1" class="docs"><p><code>job</code>s can run on <a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">different machines</a>.</p>
 </td>
                 <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
 </pre></div>
@@ -88,6 +88,43 @@
                 <td rowspan="1" class="docs"><p>Finally, do stuff! Run a command using the operating system&rsquo;s shell.</p>
 </td>
                 <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;Hello world!&quot;</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="1" class="docs"></td>
+                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Do stuff</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                <td rowspan="4" class="docs"><p>Use the pipe, <code>|</code>, to start a multiline string in yaml. This allows us to write easily readable multistep code</p>
+</td>
+                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                
+                <td class="code "><div class="highlight"><pre><span></span>          <span class="l l-Scalar l-Scalar-Plain">echo &quot;Step 1...&quot;</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                
+                <td class="code "><div class="highlight"><pre><span></span>          <span class="l l-Scalar l-Scalar-Plain">echo &quot;Step 2...&quot;</span>
+</pre></div>
+</td>
+            </tr>
+            <tr>
+                
+                <td class="code "><div class="highlight"><pre><span></span>          <span class="l l-Scalar l-Scalar-Plain">echo &quot;Step 3...&quot;</span>
 </pre></div>
 </td>
             </tr>
@@ -131,6 +168,12 @@ jobs:
       -
         name: Say Hello
         run: echo "Hello world!"
+      -
+        name: Do stuff
+        run: |
+          echo "Step 1..."
+          echo "Step 2..."
+          echo "Step 3..."
       -
         name: Say Goodbye
         run: echo "Goodbye!"
