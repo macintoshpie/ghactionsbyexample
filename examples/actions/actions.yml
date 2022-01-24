@@ -1,4 +1,4 @@
-# Actions reduce workflow `steps` by providing reusabe "code"
+# Actions reduce workflow `steps` by providing reusable "code"
 # for common tasks.
 # To run an action, you include the `uses` keyword
 # pointing to a GitHub repo with the pattern
