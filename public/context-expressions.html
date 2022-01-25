@@ -1,8 +1,18 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <html>
 <head>
+    <title>Context Expressions - GitHub Actions by Example</title>
+    <meta name="description" content="GitHub Actions by Example is an introduction to the service through annotated examples."/>
+    <meta property="og:title" content="Context Expressions - GitHub Actions by Example">
+    <meta property="og:description" content="GitHub Actions by Example is an introduction to the service through annotated examples.">
+    <meta property="og:url" content="https://www.actionsbyexample.com/">
+    <meta property="og:site_name" content="GitHub Actions by Example">
+    <meta name="twitter:title" content="Context Expressions - GitHub Actions by Example">
+    <meta name="twitter:description" content="GitHub Actions by Example is an introduction to the service through annotated examples.">
+    <meta name="twitter:creator" content="@macint0shpie">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto+Mono&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto+Mono&display=swap" rel="stylesheet">
     <link href="site.css" rel="stylesheet">
 </head>
 <body>
@@ -26,332 +36,332 @@
             <tr>
                 <td rowspan="1" class="docs"></td>
                 <td class="code ">
-                  <svg version="1.1" id="copy_icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100.56 122.88" style="enable-background:new 0 0 100.56 122.88" xml:space="preserve"><g><path d="M72.15,112.2L90.4,93H72.15V112.2L72.15,112.2z M81.75,9.2c0,1.69-1.37,3.05-3.05,3.05c-1.69,0-3.05-1.37-3.05-3.05V6.11 H6.11v92.24h3.01c1.69,0,3.05,1.37,3.05,3.05c0,1.69-1.37,3.05-3.05,3.05H5.48c-1.51,0-2.88-0.61-3.87-1.61l0.01-0.01 c-1-1-1.61-2.37-1.61-3.87V5.48C0,3.97,0.61,2.6,1.61,1.61C2.6,0.61,3.97,0,5.48,0h70.79c1.5,0,2.87,0.62,3.86,1.61l0,0l0.01,0.01 c0.99,0.99,1.61,2.36,1.61,3.86V9.2L81.75,9.2z M100.56,90.55c0,1.4-0.94,2.58-2.22,2.94l-26.88,28.27 c-0.56,0.68-1.41,1.11-2.36,1.11c-0.06,0-0.12,0-0.19-0.01c-0.06,0-0.12,0.01-0.18,0.01H24.29c-1.51,0-2.88-0.61-3.87-1.61 l0.01-0.01l-0.01-0.01c-0.99-0.99-1.61-2.36-1.61-3.86v-93.5c0-1.51,0.62-2.88,1.61-3.87l0.01,0.01c1-0.99,2.37-1.61,3.86-1.61 h70.79c1.5,0,2.87,0.62,3.86,1.61l0,0l0.01,0.01c0.99,0.99,1.61,2.36,1.61,3.86V90.55L100.56,90.55z M94.45,86.9V24.54H24.92v92.24 h41.13V89.95c0-1.69,1.37-3.05,3.05-3.05H94.45L94.45,86.9z"></path></g></svg><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">expressions-example</span>
+                  <svg version="1.1" id="copy_icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100.56 122.88" style="enable-background:new 0 0 100.56 122.88" xml:space="preserve"><g><path d="M72.15,112.2L90.4,93H72.15V112.2L72.15,112.2z M81.75,9.2c0,1.69-1.37,3.05-3.05,3.05c-1.69,0-3.05-1.37-3.05-3.05V6.11 H6.11v92.24h3.01c1.69,0,3.05,1.37,3.05,3.05c0,1.69-1.37,3.05-3.05,3.05H5.48c-1.51,0-2.88-0.61-3.87-1.61l0.01-0.01 c-1-1-1.61-2.37-1.61-3.87V5.48C0,3.97,0.61,2.6,1.61,1.61C2.6,0.61,3.97,0,5.48,0h70.79c1.5,0,2.87,0.62,3.86,1.61l0,0l0.01,0.01 c0.99,0.99,1.61,2.36,1.61,3.86V9.2L81.75,9.2z M100.56,90.55c0,1.4-0.94,2.58-2.22,2.94l-26.88,28.27 c-0.56,0.68-1.41,1.11-2.36,1.11c-0.06,0-0.12,0-0.19-0.01c-0.06,0-0.12,0.01-0.18,0.01H24.29c-1.51,0-2.88-0.61-3.87-1.61 l0.01-0.01l-0.01-0.01c-0.99-0.99-1.61-2.36-1.61-3.86v-93.5c0-1.51,0.62-2.88,1.61-3.87l0.01,0.01c1-0.99,2.37-1.61,3.86-1.61 h70.79c1.5,0,2.87,0.62,3.86,1.61l0,0l0.01,0.01c0.99,0.99,1.61,2.36,1.61,3.86V90.55L100.56,90.55z M94.45,86.9V24.54H24.92v92.24 h41.13V89.95c0-1.69,1.37-3.05,3.05-3.05H94.45L94.45,86.9z"></path></g></svg><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">expressions-example</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span><span class="nt">on</span><span class="p">:</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="nt">on</span><span class="p">:</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>  <span class="nt">push</span><span class="p">:</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>  <span class="nt">pull</span><span class="p">:</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">pull</span><span class="p">:</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span><span class="nt">jobs</span><span class="p">:</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>  <span class="nt">use-expressions</span><span class="p">:</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">use-expressions</span><span class="p">:</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">strategy</span><span class="p">:</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">strategy</span><span class="p">:</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>      <span class="nt">matrix</span><span class="p">:</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">      </span><span class="nt">matrix</span><span class="p">:</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">greeting</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">Hello</span><span class="p p-Indicator">,</span> <span class="nv">Howdy</span><span class="p p-Indicator">,</span> <span class="nv">Hey</span><span class="p p-Indicator">]</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">greeting</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">Hello</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Howdy</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Hey</span><span class="p p-Indicator">]</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">steps</span><span class="p">:</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Print if &#39;Hello&#39;</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Print if &#39;Hello&#39;</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"><p>Use equality operators to get a boolean result; in this case we are only running the step when the greeting is &ldquo;Hello&rdquo;. Note the use of single quotes for the string literal. You can use <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&amp;&amp;</code>, <code>||</code>, and <code>( ... )</code>. Learn more about operators <a href="https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#operators">here</a></p>
 </td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ matrix.greeting == &#39;Hello&#39; }}</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ matrix.greeting == &#39;Hello&#39; }}</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;greeting is Hello&quot;</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;greeting is Hello&quot;</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Print if starts with &#39;He&#39;</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Print if starts with &#39;He&#39;</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ startsWith(matrix.greeting, &#39;He&#39;) }}</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ startsWith(matrix.greeting, &#39;He&#39;) }}</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;greeting starts with He&quot;</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;greeting starts with He&quot;</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Print if ends with &#39;y&#39;</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Print if ends with &#39;y&#39;</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ endsWith(matrix.greeting, &#39;y&#39;) }}</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ endsWith(matrix.greeting, &#39;y&#39;) }}</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;greeting ends with y&quot;</span>          
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;greeting ends with y&quot;</span><span class="w">          </span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Print if contains &#39;ow&#39;</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Print if contains &#39;ow&#39;</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ contains(matrix.greeting, &#39;ow&#39;) }}</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ contains(matrix.greeting, &#39;ow&#39;) }}</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;greeting contains ow&quot;</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;greeting contains ow&quot;</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Print formatted greeting</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Print formatted greeting</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>          <span class="l l-Scalar l-Scalar-Plain">echo &quot;${{ format(&#39;{0} says {1}&#39;, github.actor, matrix.greeting) }}&quot;</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;${{ format(&#39;{0} says {1}&#39;, github.actor, matrix.greeting) }}&quot;</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">To JSON</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">To JSON</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"><p><code>toJSON()</code> converts things to a pretty-printed JSON string</p>
 </td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &#39;Job context is ${{ toJSON(job) }}&#39;</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &#39;Job context is ${{ toJSON(job) }}&#39;</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">From JSON</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">From JSON</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"><p><code>fromJSON()</code> converts a string into a JSON object or value</p>
 </td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">env</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ fromJSON(&#39;{&quot;FAVORITE_FRUIT&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;APPLE&quot;</span><span class="err">,</span> <span class="s">&quot;FAVORITE_COLOR&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;BLUE&quot;</span><span class="err">}</span><span class="s">&#39;)</span><span class="nv"> </span><span class="s">}}</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ fromJSON(&#39;{&quot;FAVORITE_FRUIT&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;APPLE&quot;</span><span class="err">,</span><span class="w"> </span><span class="s">&quot;FAVORITE_COLOR&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;BLUE&quot;</span><span class="err">}</span><span class="s">&#39;)</span><span class="nv"> </span><span class="s">}}</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;I would like a ${FAVORITE_COLOR} ${FAVORITE_FRUIT}&quot;</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;I would like a ${FAVORITE_COLOR} ${FAVORITE_FRUIT}&quot;</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span> 
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Success</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Success</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"><p><code>success()</code> returns <code>true</code> if no previous steps have failed or have been canceled.</p>
 </td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ success() }}</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ success() }}</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;Still running...&quot;</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;Still running...&quot;</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Always</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Always</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"><p><code>always()</code> returns <code>true</code> no matter if a step failed or the workflow was cancelled.</p>
 </td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ always() }}</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ always() }}</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;You will always see this&quot;</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;You will always see this&quot;</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Canceled</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Canceled</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"><p><code>canceled()</code> returns <code>true</code> if the workflow was canceled.</p>
 </td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ canceled() }}</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ canceled() }}</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;You canceled the workflow&quot;</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;You canceled the workflow&quot;</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Failure</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Failure</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"><p><code>failure()</code> returns <code>true</code> if any previous step failed.</p>
 </td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ failure() }}</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ failure() }}</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;Something went wrong...&quot;</span>
+                <td class="code "><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;Something went wrong...&quot;</span><span class="w"></span>
 </pre></div>
 </td>
             </tr>
