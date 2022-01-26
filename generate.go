@@ -142,6 +142,7 @@ func parseExample(exampleName string) *Example {
 
 	// make the code safe for inserting in template string
 	fullCode = strings.Replace(fullCode, "`", "\\`", -1)
+	fullCode = strings.Replace(fullCode, "$", "\\$", -1)
 
 	return &Example{
 		Id:              exampleName,
