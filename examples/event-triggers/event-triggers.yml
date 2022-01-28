@@ -38,7 +38,8 @@ jobs:
     steps:
       -
         name: Event
-        run: "Triggered by: $GITHUB_EVENT_NAME"
+        # This is a [default environment variable](https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables) present in all Actions. 
+        run: echo "Triggered by: $GITHUB_EVENT_NAME"
       -
         name: Say Hello
         run: echo "Hello world!"
