@@ -34,5 +34,5 @@ jobs:
     needs: job1
     # ::end-span
     steps:
-      - run: echo "job2 & job3 done, running job4"
+      - run: echo "job1 completed with status ${{ needs.job1.result }}, running job5"
     
