@@ -19,7 +19,7 @@ jobs:
         # Use equality operators to get a boolean result; in this case we are only running the step
         # when the greeting is "Hello". Note the use of single quotes for the string literal.
         # You can use `==`, `!=`, `<`, `<=`, `>`, `>=`, `&&`, `||`, and `( ... )`.
-        # Learn more about operators [here](https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#operators)
+        # Learn more about operators [here](https://docs.github.com/en/actions/learn-github-actions/expressions#operators)
         if: ${{ matrix.greeting == 'Hello' }}
         run: echo "greeting is Hello"
       -
