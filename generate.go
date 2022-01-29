@@ -2,15 +2,20 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"fmt"
 	"html/template"
 	"io/ioutil"
 	"os"
-	"os/exec"
 	"regexp"
 	"strings"
 
+	chromahtml "github.com/alecthomas/chroma/v2/formatters/html"
+	"github.com/alecthomas/chroma/v2/lexers"
+	"github.com/alecthomas/chroma/v2/styles"
+	"github.com/antchfx/htmlquery"
 	"github.com/gomarkdown/markdown"
+	"golang.org/x/net/html"
 )
 
 type Row struct {
@@ -87,8 +92,9 @@ func parseExample(exampleName string) *Example {
 			if strings.TrimSpace(line) == "" && row.Doc == "" {
 				continue
 			}
-
-			fullCode += line + "\n"
+			if strings.TrimSpace(line) != "" {
+				fullCode += line + "\n"
+			}
 
 			row.Code = line
 			if !foundFirstCode && line != "" {
@@ -113,6 +119,18 @@ func parseExample(exampleName string) *Example {
 	err = scanner.Err()
 	check(err)
 
+	b := new(bytes.Buffer)
+	style := styles.Get("autumn")
+	formatter := chromahtml.New(chromahtml.WithClasses(true))
+	lexer := lexers.Get("yaml")
+	iterator, err := lexer.Tokenise(nil, fullCode)
+	check(err)
+	err = formatter.Format(b, style, iterator)
+	check(err)
+	codeDoc, err := htmlquery.Parse(strings.NewReader(b.String()))
+	codeRows := htmlquery.Find(codeDoc, "//span[@class=\"line\"]")
+
+	codeRowIdx := -1
 	for _, row := range rows {
 		// change docs markdown to html
 		row.DocHTML = template.HTML(markdown.ToHTML([]byte(row.Doc), nil, nil))
@@ -120,24 +138,17 @@ func parseExample(exampleName string) *Example {
 		// if code is empty
 		row.CodeEmpty = strings.TrimSpace(row.Code) == ""
 
-		// change code to highlighted html
-		pygmentizeCmd := exec.Command("pygmentize", "-l", "yaml", "-f", "html")
-		stdin, err := pygmentizeCmd.StdinPipe()
-		check(err)
-		stdout, err := pygmentizeCmd.StdoutPipe()
-		check(err)
-		err = pygmentizeCmd.Start()
-		check(err)
+		if row.FirstCode {
+			codeRowIdx = 0
+		}
 
-		_, err = stdin.Write([]byte(row.Code))
-		check(err)
-		err = stdin.Close()
-		check(err)
-		bytes, err := ioutil.ReadAll(stdout)
-		check(err)
-		err = pygmentizeCmd.Wait()
-		check(err)
-		row.CodeHTML = template.HTML(bytes)
+		if codeRowIdx >= 0 {
+			b := new(bytes.Buffer)
+			err := html.Render(b, codeRows[codeRowIdx])
+			check(err)
+			row.CodeHTML = template.HTML(b.String())
+			codeRowIdx += 1
+		}
 	}
 
 	// make the code safe for inserting in template string
@@ -180,6 +191,16 @@ func templatizeIndex(examples []*Example) {
 	indexTmpl.Execute(indexF, examples)
 }
 
+func generateStyles() {
+	style := styles.Get("autumn")
+	formatter := chromahtml.New(chromahtml.WithClasses(true))
+	f, err := os.Create("public/default.css")
+	check(err)
+	defer f.Close()
+	err = formatter.WriteCSS(f, style)
+	check(err)
+}
+
 func main() {
 	fmt.Println("Starting...")
 	file, err := os.Open("examples.txt")
@@ -206,5 +227,8 @@ func main() {
 	}
 
 	templatizeIndex(allExamples)
+
+	fmt.Println("Generating CSS styles...")
+	generateStyles()
 	fmt.Println("Finished Successfully")
 }

@@ -13,6 +13,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="default.css" rel="stylesheet">
     <link href="site.css" rel="stylesheet">
 </head>
 <body>
@@ -21,7 +22,7 @@
     <h1><a href="index.html">GitHub Actions by Example</a></h1>
     <p>GitHub Actions is a convenient CI/CD service provided by GitHub.</p>
     <p><span style="font-style: italic">GitHub Actions by Example</span> is an introduction to the service through annotated examples.</p>
-    <ul>
+    <ul id="examples-list">
     {{range .}}
         <li><a class="internal_link" href="{{.Id}}.html">{{.Name}}</a></li>
     {{end}}
