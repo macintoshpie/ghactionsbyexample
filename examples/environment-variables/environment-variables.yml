@@ -41,7 +41,7 @@ jobs:
         # ::span-comment
         # There are many environment variables available by default.
         # Here are a few, [see a full list here](https://docs.github.com/en/actions/reference/environment-variables#default-environment-variables).
-          echo "Workflow name:  $GITHUB_WORKFLOW
+          echo "Workflow name:  $GITHUB_WORKFLOW"
           echo "Workspace:      $GITHUB_WORKSPACE"
           echo "Event:          $GITHUB_EVENT_NAME"
           echo "SHA:            $GITHUB_SHA"
