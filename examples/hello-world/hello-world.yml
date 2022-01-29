@@ -2,7 +2,7 @@
 # Workflows  define sequences of commands written in [YAML](https://en.wikipedia.org/wiki/YAML) and must be
 # located under the directory `.github/workflows/` at the root of your repository.
 # ::newline
-# This example workflow prints "Hello world", then "Goodbye".
+# This example workflow prints "Hello world", followed by "Step 1...", "Step 2...", "Step 3...", and finally "Goodbye".
 
 name: hello-world-example
 
