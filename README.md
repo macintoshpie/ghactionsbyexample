@@ -4,13 +4,10 @@ See the site [here](https://www.actionsbyexample.com/).
 
 # Development
 
-Edit example files in `examples/`.
+Edit example files in `examples/`. Build the site by running
 
 ```bash
-./build.sh
-
-# or
-./build.sh watch
+make
 ```
 
 Files for serving are put into `public/`.
