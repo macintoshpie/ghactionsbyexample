@@ -206,6 +206,8 @@ func main() {
 	file, err := os.Open("examples.txt")
 	check(err)
 	defer file.Close()
+	err = os.MkdirAll("public", 0777)
+	check(err)
 
 	allExamples := []*Example{}
 	scanner := bufio.NewScanner(file)
@@ -230,5 +232,10 @@ func main() {
 
 	fmt.Println("Generating CSS styles...")
 	generateStyles()
+
+	// fmt.Println("Creating symlink for static dir...")
+	// err = os.Symlink("static", "public/static")
+	// check(err)
+
 	fmt.Println("Finished Successfully")
 }

@@ -1,0 +1,7 @@
+[build]
+  publish = "public/"
+  command = "make"
+
+[build.environment]
+  GO_VERSION = "1.17.6"
+  GO111MODULE = "on"
