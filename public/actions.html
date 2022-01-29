@@ -13,6 +13,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="default.css" rel="stylesheet">
     <link href="site.css" rel="stylesheet">
 </head>
 <body>
@@ -29,115 +30,114 @@
             <tr>
                 <td rowspan="1" class="docs"><p>Actions reduce workflow <code>steps</code> by providing reusable &ldquo;code&rdquo; for common tasks. To run an action, you include the <code>uses</code> keyword pointing to a GitHub repo with the pattern <code>{owner}/{repo}@{ref}</code> or <code>{owner}/{repo}/{path}@{ref}</code> if it&rsquo;s in a subdirectory. A <code>ref</code> can be a branch, tag, or SHA.</p>
 </td>
-                <td class="code  empty"><div class="highlight"><pre><span></span>
-</pre></div>
-</td>
+                <td class="code  empty">
+                  <pre tabindex="0" class="chroma"><code></code></pre></td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
                 <td class="code ">
-                  <svg version="1.1" id="copy_icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100.56 122.88" style="enable-background:new 0 0 100.56 122.88" xml:space="preserve"><g><path d="M72.15,112.2L90.4,93H72.15V112.2L72.15,112.2z M81.75,9.2c0,1.69-1.37,3.05-3.05,3.05c-1.69,0-3.05-1.37-3.05-3.05V6.11 H6.11v92.24h3.01c1.69,0,3.05,1.37,3.05,3.05c0,1.69-1.37,3.05-3.05,3.05H5.48c-1.51,0-2.88-0.61-3.87-1.61l0.01-0.01 c-1-1-1.61-2.37-1.61-3.87V5.48C0,3.97,0.61,2.6,1.61,1.61C2.6,0.61,3.97,0,5.48,0h70.79c1.5,0,2.87,0.62,3.86,1.61l0,0l0.01,0.01 c0.99,0.99,1.61,2.36,1.61,3.86V9.2L81.75,9.2z M100.56,90.55c0,1.4-0.94,2.58-2.22,2.94l-26.88,28.27 c-0.56,0.68-1.41,1.11-2.36,1.11c-0.06,0-0.12,0-0.19-0.01c-0.06,0-0.12,0.01-0.18,0.01H24.29c-1.51,0-2.88-0.61-3.87-1.61 l0.01-0.01l-0.01-0.01c-0.99-0.99-1.61-2.36-1.61-3.86v-93.5c0-1.51,0.62-2.88,1.61-3.87l0.01,0.01c1-0.99,2.37-1.61,3.86-1.61 h70.79c1.5,0,2.87,0.62,3.86,1.61l0,0l0.01,0.01c0.99,0.99,1.61,2.36,1.61,3.86V90.55L100.56,90.55z M94.45,86.9V24.54H24.92v92.24 h41.13V89.95c0-1.69,1.37-3.05,3.05-3.05H94.45L94.45,86.9z"></path></g></svg><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions-example</span>
-</pre></div>
-</td>
+                  <svg version="1.1" id="copy_icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100.56 122.88" style="enable-background:new 0 0 100.56 122.88" xml:space="preserve"><g><path d="M72.15,112.2L90.4,93H72.15V112.2L72.15,112.2z M81.75,9.2c0,1.69-1.37,3.05-3.05,3.05c-1.69,0-3.05-1.37-3.05-3.05V6.11 H6.11v92.24h3.01c1.69,0,3.05,1.37,3.05,3.05c0,1.69-1.37,3.05-3.05,3.05H5.48c-1.51,0-2.88-0.61-3.87-1.61l0.01-0.01 c-1-1-1.61-2.37-1.61-3.87V5.48C0,3.97,0.61,2.6,1.61,1.61C2.6,0.61,3.97,0,5.48,0h70.79c1.5,0,2.87,0.62,3.86,1.61l0,0l0.01,0.01 c0.99,0.99,1.61,2.36,1.61,3.86V9.2L81.75,9.2z M100.56,90.55c0,1.4-0.94,2.58-2.22,2.94l-26.88,28.27 c-0.56,0.68-1.41,1.11-2.36,1.11c-0.06,0-0.12,0-0.19-0.01c-0.06,0-0.12,0.01-0.18,0.01H24.29c-1.51,0-2.88-0.61-3.87-1.61 l0.01-0.01l-0.01-0.01c-0.99-0.99-1.61-2.36-1.61-3.86v-93.5c0-1.51,0.62-2.88,1.61-3.87l0.01,0.01c1-0.99,2.37-1.61,3.86-1.61 h70.79c1.5,0,2.87,0.62,3.86,1.61l0,0l0.01,0.01c0.99,0.99,1.61,2.36,1.61,3.86V90.55L100.56,90.55z M94.45,86.9V24.54H24.92v92.24 h41.13V89.95c0-1.69,1.37-3.05,3.05-3.05H94.45L94.45,86.9z"></path></g></svg>
+                  <pre tabindex="0" class="chroma"><code><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">actions-example</span><span class="w">
+</span></span></span></code></pre></td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span><span class="nt">on</span><span class="p">:</span>
-</pre></div>
-</td>
+                <td class="code ">
+                  <pre tabindex="0" class="chroma"><code><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span></code></pre></td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>  <span class="nt">push</span><span class="p">:</span>
-</pre></div>
-</td>
+                <td class="code ">
+                  <pre tabindex="0" class="chroma"><code><span class="line"><span class="cl"><span class="w"></span><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span></code></pre></td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span><span class="nt">jobs</span><span class="p">:</span>
-</pre></div>
-</td>
+                <td class="code ">
+                  <pre tabindex="0" class="chroma"><code><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span></code></pre></td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>  <span class="nt">use-actions</span><span class="p">:</span>
-</pre></div>
-</td>
+                <td class="code ">
+                  <pre tabindex="0" class="chroma"><code><span class="line"><span class="cl"><span class="w"></span><span class="w">  </span><span class="nt">use-actions</span><span class="p">:</span><span class="w">
+</span></span></span></code></pre></td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-</pre></div>
-</td>
+                <td class="code ">
+                  <pre tabindex="0" class="chroma"><code><span class="line"><span class="cl"><span class="w"></span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span></code></pre></td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>    <span class="nt">steps</span><span class="p">:</span>
-</pre></div>
-</td>
+                <td class="code ">
+                  <pre tabindex="0" class="chroma"><code><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span></code></pre></td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"><p>The <code>checkout</code> action checks out your repo into the working directory at the ref which triggered the workflow (e.g. a branch that was pushed).</p>
 </td>
-                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
-</pre></div>
-</td>
+                <td class="code ">
+                  <pre tabindex="0" class="chroma"><code><span class="line"><span class="cl"><span class="w"></span><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
+</span></span></span></code></pre></td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"><p>The <code>setup-node</code> action makes node and npm available in the following steps.</p>
 </td>
-                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v1</span>
-</pre></div>
-</td>
+                <td class="code ">
+                  <pre tabindex="0" class="chroma"><code><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/setup-node@v1</span><span class="w">
+</span></span></span></code></pre></td>
             </tr>
             <tr>
                 <td rowspan="2" class="docs"><p>Some actions also have required or optional arguments.</p>
 </td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">with</span><span class="p">:</span>
-</pre></div>
-</td>
+                <td class="code ">
+                  <pre tabindex="0" class="chroma"><code><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span></code></pre></td>
             </tr>
             <tr>
                 
-                <td class="code "><div class="highlight"><pre><span></span>          <span class="nt">node-version</span><span class="p">:</span> <span class="s">&#39;15.8.0&#39;</span>
-</pre></div>
-</td>
+                <td class="code ">
+                  <pre tabindex="0" class="chroma"><code><span class="line"><span class="cl"><span class="w"></span><span class="w">          </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;15.8.0&#39;</span><span class="w">
+</span></span></span></code></pre></td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span>
-</pre></div>
-</td>
+                <td class="code ">
+                  <pre tabindex="0" class="chroma"><code><span class="line"><span class="cl"><span class="w">      </span>-<span class="w">
+</span></span></span></code></pre></td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install repo dependencies</span>
-</pre></div>
-</td>
+                <td class="code ">
+                  <pre tabindex="0" class="chroma"><code><span class="line"><span class="cl"><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install repo dependencies</span><span class="w">
+</span></span></span></code></pre></td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">npm install</span>
-</pre></div>
-</td>
+                <td class="code ">
+                  <pre tabindex="0" class="chroma"><code><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">npm install</span><span class="w">
+</span></span></span></code></pre></td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>      <span class="p p-Indicator">-</span>
-</pre></div>
-</td>
+                <td class="code ">
+                  <pre tabindex="0" class="chroma"><code><span class="line"><span class="cl"><span class="w">      </span>-<span class="w">
+</span></span></span></code></pre></td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Run script from repo</span>
-</pre></div>
-</td>
+                <td class="code ">
+                  <pre tabindex="0" class="chroma"><code><span class="line"><span class="cl"><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run script from repo</span><span class="w">
+</span></span></span></code></pre></td>
             </tr>
             <tr>
                 <td rowspan="1" class="docs"></td>
-                <td class="code "><div class="highlight"><pre><span></span>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">node helloWorld.js</span>
-</pre></div>
-</td>
+                <td class="code ">
+                  <pre tabindex="0" class="chroma"><code><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">node helloWorld.js</span><span class="w">
+</span></span></span></code></pre></td>
             </tr>
         <tbody>
     </table>
@@ -150,8 +150,7 @@
 <p class="footer">By <a href="https://macintoshpie.github.io">Ted Summer</a> | <a href="https://github.com/macintoshpie/ghactionsbyexample">Source</a> | Inspired by <a href="https://gobyexample.com">Go by Example</a></p>
 </div>
 <script>
-    const yamlBody = `
-name: actions-example
+    const yamlBody = `name: actions-example
 on:
   push:
 jobs:
