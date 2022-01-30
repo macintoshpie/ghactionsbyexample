@@ -30,4 +30,4 @@ jobs:
         name: Run script from repo
         run: node helloWorld.js
 
-# Github officially support many common actions. See the full list [here](https://github.com/actions)
+# GitHub officially supports many common actions. See the full list [here](https://github.com/actions)
