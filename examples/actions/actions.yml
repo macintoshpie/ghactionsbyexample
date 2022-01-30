@@ -4,6 +4,8 @@
 # pointing to a GitHub repo with the pattern
 # `{owner}/{repo}@{ref}` or `{owner}/{repo}/{path}@{ref}`
 # if it's in a subdirectory. A `ref` can be a branch, tag, or SHA.
+# ::newline
+# GitHub officially supports many common actions. See the full list [here](https://github.com/actions)
 
 name: actions-example
 on:
@@ -29,5 +31,3 @@ jobs:
       -
         name: Run script from repo
         run: node helloWorld.js
-
-# GitHub officially supports many common actions. See the full list [here](https://github.com/actions)
