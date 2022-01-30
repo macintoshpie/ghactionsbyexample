@@ -1,6 +1,6 @@
 module github.com/macintoshpie/ghactionsbyexample
 
-go 1.13
+go 1.17
 
 require (
 	github.com/alecthomas/chroma v0.10.0
