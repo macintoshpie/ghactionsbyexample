@@ -5,7 +5,7 @@
 name: expressions-example
 on:
   push:
-  pull:
+  pull_request:
 
 jobs:
   use-expressions:
@@ -60,7 +60,7 @@ jobs:
       -
         name: Canceled
         # `canceled()` returns `true` if the workflow was canceled.
-        if: ${{ canceled() }}
+        if: ${{ cancelled() }}
         run: echo "You canceled the workflow"
       -
         name: Failure
