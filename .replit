@@ -1,0 +1,19 @@
+run = "make"
+hidden = ["main"]
+
+[languages.go]
+pattern = "**/*.go"
+
+[languages.go.languageServer]
+start = "gopls"
+
+[nix]
+channel = "stable-22_11"
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix"]
+
+[deployment]
+build = ["sh", "-c", "make"]
+deploymentTarget = "static"
+publicDir = "public"
