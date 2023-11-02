@@ -46,7 +46,7 @@ func check(err error) {
 }
 
 func idToName(id string) string {
-	return strings.Title(strings.ToLower(strings.Replace(id, "-", " ", -1)))
+	return strings.Title(strings.ToLower(strings.ReplaceAll(id, "-", " ")))
 }
 
 func parseExample(exampleName string) *Example {
@@ -128,6 +128,7 @@ func parseExample(exampleName string) *Example {
 	err = formatter.Format(b, style, iterator)
 	check(err)
 	codeDoc, err := htmlquery.Parse(strings.NewReader(b.String()))
+	check(err)
 	codeRows := htmlquery.Find(codeDoc, "//span[@class=\"line\"]")
 
 	codeRowIdx := -1
